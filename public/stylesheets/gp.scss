@@ -1,0 +1,296 @@
+---
+---
+body {background:white;}
+.notice-red {
+	padding: 18px;
+    margin: 36px 0;
+	background: #F85154;
+    border-left: 3px solid #CC0104;
+    font-size:18px;
+    line-height:20px;
+}
+ul.notice-red-line {
+	padding: 18px;
+    margin: 15px 20px;
+    margin-top:0px;
+	background: white;
+    border-left: 3px solid #CC0104;
+    font-size:16px;
+    line-height:18px;
+    color:#CC0104;
+}
+
+h2.phone {
+	font-size:2.3em;
+	color:#66B0E8;
+}
+h2.subhead {
+	font-size:2em;
+	line-height:1.4em;
+	
+}
+.notice-green {
+	padding: 18px;
+    margin: 36px 0;
+	background: #33DD8C;
+    border-left: 3px solid #01B43A;
+    font-size:18px;
+    line-height:20px;
+}
+.notice-red li {
+	 color:white;
+	     margin-top: 15px;
+	}
+.notice-green li {
+	 color:black;
+	 margin-top: 15px;
+	}
+	
+	ul {
+    margin: 0.75em 0;
+    padding: 0 1em;
+    list-style: none;
+}
+li {
+    margin-left:0.3em;
+}
+li.black:before { 
+    content: "";
+    border-color: transparent #111;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+}
+li.white:before { 
+    content: "";
+    border-color: transparent white;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+	
+}
+
+
+
+.rating {
+	width: 100%;
+	margin: 25px 30px;
+}
+
+span {
+	font-size: 20px;
+	color: orange;
+	cursor: pointer;
+}
+
+span:hover:before {
+	content: "\2605";
+	position: absolute;
+	color: orange;
+}
+.callout.link-box {
+    padding: 8px;
+    border: 8px solid #009966;
+    margin-bottom: 20px;
+}
+.search-box {
+	height:40px;
+	margin-bottom:20px;
+}
+.search {
+    display: block;
+    float: left;
+}
+.search {
+	margin-left:20px;
+    display: block;
+    float: left;
+}
+
+.search input[type='text'] {
+   /* display: none;*/
+    box-sizing: border-box;
+    float: left;
+    height: 32px;
+    width: 300px;
+    padding: 2px 10px;
+    margin: 0;
+    background-color: #ffffff;
+    border: 1px solid #00365D;
+}
+input[type='text'] {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: block;
+    width: 100%;
+    margin: 16px 0 32px 0;
+    padding: 0 4px;
+    border: 2px solid #e6e6e6;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 400;
+    line-height: 48px;
+}
+
+
+.search button {
+    box-sizing: border-box;
+    float: left;
+    height: 32px;
+    width: 32px;
+    margin: 0;
+    text-indent: -999em;
+    background: url("http://nhs-design.herokuapp.com/images/icon-search.svg") center center no-repeat #00365D;
+    background-size: 16px;
+    border: 1px solid #00365D;
+}
+#checkboxes label {
+  float: left;
+}
+#checkboxes ul {
+  margin: 0;
+  list-style: none;
+  float: left;
+}
+
+.panel1-group {
+    border:solid 8px #096;
+    margin-bottom:20px;
+}
+.panel1-default>.panel-heading {
+    color: #337ab7;
+    background-color: none;
+    border-color: none;
+}
+.panel1-heading {
+    padding: 10px 15px;
+    border-bottom: 0;
+}
+.panel1-body {
+    padding: 5px 12px;
+}
+table {
+    border-collapse: collapse;
+    width:92%;
+    margin:4%;
+}
+
+th, td {
+    width:50%;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/*.accordion {
+    font-family:Arial, Helvetica, sans-serif; 
+    margin:0 auto;
+    font-size:14px;
+    padding: 8px;
+    border: 8px solid #009966;
+    margin-bottom:20px;
+    background:#fff;
+}
+.accordion ul {
+    list-style:none;
+    margin:0;
+    padding:0;    
+}
+.accordion li {
+    margin:0;
+    padding:0;
+}
+
+.accordion [type=radio], .accordion [type=checkbox] {
+    display:none;
+    
+}
+.accordion label {
+    display:block;
+    font-size:16px;
+    line-height:18px;
+    background:white;
+    
+    color:#096;
+    
+    cursor:pointer;
+     
+   
+}
+.accordion ul li label:hover, .accordion [type=radio]:checked ~ label, .accordion [type=checkbox]:checked ~ label {
+    background:none;
+    color: #096;
+   
+}
+.accordion [type=radio], .accordion [type=checkbox] ~ label:before {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    /*font-size: 16px;
+    color: #096;
+    position:relative;
+    left:-8px;
+    
+}
+.accordion [type=radio], .accordion [type=checkbox]:checked ~ label:before {
+    content: "\02796"; /* Unicode character for "minus" sign (-) 
+  
+}
+
+
+
+.accordion .content {
+    padding:0 10px;
+    overflow:hidden;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+}
+.accordion p {
+    color:#333;
+    margin:0 0 10px;
+}
+.accordion h3 {
+    color:#542437;
+    padding:0;
+    margin:10px 0;
+}
+
+
+
+.vertical ul li {
+    overflow:hidden;
+    margin:0 0 1px;
+}
+.vertical ul li label {
+    padding:10px;
+   
+}
+
+.vertical [type=radio]:checked ~ label, .vertical [type=checkbox]:checked ~ label {
+    border-bottom:0;
+     
+}
+.vertical ul li label:hover {
+    border:none;
+}
+.vertical ul li .content {
+    height:0px;
+    border-top:0;
+    transition: all .5s ease-out;
+    width:100%;
+    
+}
+.vertical [type=checkbox]:checked ~ label ~ .content {
+    min-height:200px;
+    
+}*/
+

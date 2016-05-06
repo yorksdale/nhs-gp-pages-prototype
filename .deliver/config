@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# See https://github.com/gerhard/deliver for details
+
+if [ "" = "${AWS_ACCESS_KEY}" ] || [ "" = "${AWS_SECRET_KEY}" ]; then
+    echo
+    echo "Error: Please provide AWS_ACCESS_KEY and AWS_SECRET_KEY environment variables."
+    exit 2
+fi
+
+
+# See http://stackoverflow.com/a/2659808 for these git plumbing commands
+
+exit_with_unclean_git_message() {
+    echo
+    echo "ERROR: Your git repository is not clean - you have unstaged or uncommitted changes."
+    echo
+    git status
+    exit 2
+}
+
+assert_no_staged_uncommitted_files() {
+    git diff-index --quiet --cached HEAD
+
+    if [ "0" != $? ]; then
+        exit_with_unclean_git_message
+    fi
+}
+
+assert_no_unstaged_files() {
+    git diff-files --quiet
+
+    if [ "0" != $? ]; then
+        exit_with_unclean_git_message
+    fi
+}
+
+assert_no_untracked_unignored_files() {
+    test -z "$(git ls-files --exclude-standard --others)"
+
+    if [ "0" != $? ]; then
+        exit_with_unclean_git_message
+    fi
+}
+
+assert_no_staged_uncommitted_files
+assert_no_unstaged_files
+assert_no_untracked_unignored_files
+
+STRATEGY="s3"
+
+case "${NHSALPHA_ENVIRONMENT}" in
+    'production' )
+        S3_BUCKET="alpha.nhs.uk"
+        ;;
+    'staging' )
+        S3_BUCKET="alpha-staging.nhs.uk"
+        ;;
+    *)
+        echo
+        echo "Error: Please provide NHSALPHA_ENVIRONMENT=staging|production"
+        exit 2
+        ;;
+esac
+
+S3CMD_OPTIONS="--access_key $AWS_ACCESS_KEY --secret_key $AWS_SECRET_KEY --config .deliver/s3cfg sync --delete-removed"
+
+# Generate the site with jekyll before delivering
+ASSETS_DIR="_deploy/"
+GENERATE_CMD="jekyll build --destination $ASSETS_DIR && find $ASSETS_DIR -name '*.html' | sed -e 's/.html$//' | while read file; do mv \$file{.html,}; done"

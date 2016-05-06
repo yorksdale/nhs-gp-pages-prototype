@@ -1,0 +1,19 @@
+exclude:
+- Gemfile
+- Gemfile.lock
+- README
+
+markdown: kramdown
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "condition"
+  -
+    scope:
+      path: "index.html"
+    values:
+      layout: "default"
+
+permalink: /:path/:basename
