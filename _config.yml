@@ -1,7 +1,4 @@
-exclude:
-- Gemfile
-- Gemfile.lock
-- README
+
 
 markdown: kramdown
 defaults:
@@ -17,3 +14,4 @@ defaults:
       layout: "default"
 
 permalink: /:path/:basename
+
