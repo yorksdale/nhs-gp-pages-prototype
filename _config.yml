@@ -1,4 +1,7 @@
-
+exclude:
+- Gemfile
+- Gemfile.lock
+- README
 
 markdown: kramdown
 defaults:
